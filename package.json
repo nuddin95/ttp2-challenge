@@ -4,13 +4,27 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node CalendarBackEnd",
+    "start-dev": "webpack -w & nodemon CalendarBackEnd/index.js",
+    "build-client": "webpack",
+    "build-client-watch": "webpack -w"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-router-dom": "^4.2.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14"
   }
 }

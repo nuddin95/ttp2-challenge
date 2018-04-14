@@ -30,9 +30,8 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500).send(err.message || 'Internal server error.');
 });
 
+//Starts our server to listen for requests
 app.listen(port, () => {
-    console.log("Knock, knock");
-    console.log("Who's there?");
     console.log(`Your server, listening on port ${port}`);
 });
 
