@@ -1,7 +1,19 @@
 .day {
-    border: 2px solid black;
+    border: 1px solid black;
     display:grid;
-    grid-template-rows: 1fr 1fr 3fr;
+    grid-template-rows: 1fr 3fr;
+    background-color: white;
+    margin:1%;
+    padding:5%;
+}
+
+.day-name {
+    font-family: 'Comfortaa', cursive;
+}
+
+.day-number {
+    font-family: 'Comfortaa', cursive;
+    color: #424242;
 }
 
 .day-events {

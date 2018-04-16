@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Day.css';
 
-const days=["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+const days=["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 export default class Day extends Component {
     constructor(props){
@@ -11,8 +11,7 @@ export default class Day extends Component {
     render(){
         return (
             <div className="day">
-                <h4 className="day-name">{days[this.props.day]}</h4>
-                <h5 className="day-number">{this.props.number}</h5>
+                <h4 className="day-number">{this.props.number}</h4>
                 <ul className="day-events">
                     {
                         this.props.events.map((event, ind) => {

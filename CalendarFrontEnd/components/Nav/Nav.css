@@ -1,15 +1,35 @@
 #nav{
-    width:98%;
+    width:100%;
     /* background-color: #304FFE; */
     background-color: #3F51B5;
-    padding: 1%;
-    /* box-shadow: 1px 1px 18px #111; */
-    /* border: 1px solid black; */
     text-align: center;
+}
+
+#nav-days{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 1%;
+    background-color: #9FA8DA;
+}
+
+.nav-days-day{
+    text-align: center;
+    /* color: #212121; */
+    color: white;
+    font-family: 'Comfortaa', cursive;
 }
 
 #title{
     font-size: 2.25em;
     color: #E8EAF6;
+    padding: 1%;
     font-family: 'Comfortaa', cursive;
+}
+
+#title-month{
+    margin-top:2%;
+    font-size: 1.75em;
+    color: #E8EAF6;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
 }

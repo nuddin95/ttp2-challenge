@@ -3,4 +3,5 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 9fr;
+    background-color: #E8EAF6;
 }
