@@ -1,7 +1,7 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: './CalendarFrontEnd/index.js', // assumes your entry point is the index.js in the root of your project folder
+    entry: './CalendarFrontEnd/main.js', // assumes your entry point is the index.js in the root of your project folder
     mode: 'development',
     output: {
       path: __dirname+'/CalendarFrontEnd/public',

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Nav from './Nav/Nav'
+import Nav from './Nav/Nav';
+import './index.css';
 
 export default class Main extends Component {
     constructor(){
@@ -8,7 +9,9 @@ export default class Main extends Component {
 
     render(){
         return (
-            <Nav />
+            <div id="main">
+                <Nav />
+            </div>
         )
     }
 }

@@ -8,8 +8,8 @@ export default class Nav extends Component {
 
     render(){
         return (
-            <div className="nav">
-                Cal
+            <div id="nav">
+                <h1 id="title">Calendar</h1>
             </div>
         )
     }
