@@ -1,0 +1,7 @@
+.form {
+    background-color: red;
+    width:100%;
+    border-radius: 5px;
+    /* z-index: 2; */
+    grid-area: 1 / 2 / 5 / 7;
+}

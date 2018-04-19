@@ -6,6 +6,7 @@ const daysOfWeek=["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 export default class Nav extends Component {
     constructor(){
         super();
+        
     }
 
     render(){

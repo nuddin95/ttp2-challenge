@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import './Month.css';
 import Day from '../Day/Day';
+import Form from '../Form/Form'
 
 const days=["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
 
 export default class Month extends Component {
     constructor(props){
         super(props);
+        this.state = {
+            form:{}
+        }
+        this.clickDay = this.clickDay.bind(this);
+    }
+
+    clickDay(day){
+        this.setState({form:{'day':day}})
     }
 
     render(){
@@ -14,8 +23,10 @@ export default class Month extends Component {
         return (
             <div className="month">
                 {
+                    (Object.keys(this.state.form).length) ? 
+                    <Form date={this.state.form}/> :
                     this.props.days && (Object.keys(days)).map((day, ind) => {
-                        return (<Day key={`day-${ind}`} number={day} dayName={days[day]} events={['Test', 'Test2']}/>)
+                        return (<Day key={`day-${ind}`} number={day} click={this.clickDay} />)
                     })
                 }
             </div>

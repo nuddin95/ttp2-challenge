@@ -10,12 +10,12 @@ export default class Day extends Component {
 
     render(){
         return (
-            <div className="day">
+            <div className="day" onClick={()=>{(this.props.click)(this.props.number)}} >
                 <h4 className="day-number">{this.props.number}</h4>
                 <ul className="day-events">
                     {
-                        this.props.events.map((event, ind) => {
-                            return (<li key={`months-${this.props.number}-${ind}`}>{event}</li>)
+                        ['Test', 'Test2', 'Test3'].map((event, ind) => {
+                            return (<li className="day-events-single" key={`months-${this.props.number}-${ind}`}>{event}</li>)
                         })
                     }
                 </ul>
