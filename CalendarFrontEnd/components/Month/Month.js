@@ -14,8 +14,8 @@ export default class Month extends Component {
         this.clickDay = this.clickDay.bind(this);
     }
 
-    clickDay(day){
-        this.setState({form:{'day':day}})
+    clickDay(day, events){
+        this.setState({form:{day, events}})
     }
 
     render(){
@@ -26,7 +26,7 @@ export default class Month extends Component {
                     (Object.keys(this.state.form).length) ? 
                     <Form date={this.state.form}/> :
                     this.props.days && (Object.keys(days)).map((day, ind) => {
-                        return (<Day key={`day-${ind}`} number={day} click={this.clickDay} />)
+                        return (<Day key={`day-${ind}`} number={day} clickFunction={this.clickDay} />)
                     })
                 }
             </div>

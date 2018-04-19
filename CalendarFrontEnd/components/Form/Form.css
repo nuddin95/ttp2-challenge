@@ -1,7 +1,47 @@
 .form {
     background-color: red;
+    font-family: 'Comfortaa', cursive;
     width:100%;
+    border:solid 2px black;
     border-radius: 5px;
-    /* z-index: 2; */
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr;
     grid-area: 1 / 2 / 5 / 7;
+}
+
+.form-date {
+    grid-row: 0 / 1;
+}
+
+.form-events {
+    grid-row: 2 / 4;
+    background-color: pink;
+}
+
+.form-events-collapse {
+    grid-row: 2 / 4;
+    background-color: pink;
+    display:none;
+}
+
+.form-new {
+    display:grid;
+    grid-template-columns: 9fr 1fr;
+    grid-row: 3 / 5;
+    background-color: blue;
+}
+
+.form-new-expand {
+    display:grid;
+    grid-row: 2 / span 2;
+    background-color: blue;
+}
+
+.form-new-button {
+    display:grid;
+    grid-column: 2;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: green;
 }
