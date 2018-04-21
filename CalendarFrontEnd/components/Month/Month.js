@@ -3,7 +3,7 @@ import './Month.css';
 import Day from '../Day/Day';
 import Form from '../Form/Form'
 
-const days=["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+// const days=["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
 
 export default class Month extends Component {
     constructor(props){
@@ -26,7 +26,7 @@ export default class Month extends Component {
                     (Object.keys(this.state.form).length) ? 
                     <Form date={this.state.form}/> :
                     this.props.days && (Object.keys(days)).map((day, ind) => {
-                        return (<Day key={`day-${ind}`} number={day} clickFunction={this.clickDay} />)
+                        return (<Day key={`day-${ind}`} date={{day, 'month':'04', 'year':2018}} clickFunction={this.clickDay} />)
                     })
                 }
             </div>
