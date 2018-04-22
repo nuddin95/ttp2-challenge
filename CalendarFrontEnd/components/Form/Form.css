@@ -1,6 +1,7 @@
 .form {
-    background-color: red;
+    background-color: white;
     font-family: 'Comfortaa', cursive;
+    margin-top:1%;
     width:100%;
     border:solid 2px black;
     border-radius: 5px;
@@ -9,13 +10,36 @@
     grid-area: 1 / 2 / 5 / 7;
 }
 
-.form-date {
+.form-header {
     grid-row: 0 / 1;
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+}
+
+.form-header-date {
+    padding: 1%;
+    grid-column: 0 / 9;
+    text-align: left;
+}
+
+.form-header-back {
+    text-align: center;
+    border-radius: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+    transition: all 0.2s ease;
+}
+
+.form-header-back:hover {
+    font-size:1.10em;
 }
 
 .form-events {
     grid-row: 2 / 4;
-    background-color: pink;
+}
+
+.form-events-list {
     list-style-type: none;
-    transition: all 0.2s ease;
+    margin:0;
+    padding:0;
 }

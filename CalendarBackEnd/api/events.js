@@ -5,7 +5,9 @@ module.exports = router;
 //GET all events
 router.get('/', (req, res, next)=>{
     Event.findAll()
-    .then(events => res.json(events))
+    .then(events => {
+        console.log("GET ALL EVENTD", events)
+        res.json(events)})
 })
 
 //POST new event

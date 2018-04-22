@@ -10,8 +10,6 @@
 }
 
 .day:hover {
-    opacity: 1;
-    /* background-color: blue; */
     margin:0%;
 }
 
@@ -27,10 +25,16 @@
 .day-events {
     list-style-type: none;
     overflow: auto;
+    margin:0;
+    padding:0;
 }
 
 .day-events-single {
-    /* font-family: 'Comfortaa', cursive; */
-    margin-bottom: 1%;
-    /* background-color: gray; */
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8em;
+    margin:1%;
+    padding: 1%;
+    border-radius: 5px;
+    background-color: #ECEFF1;
+    
 }

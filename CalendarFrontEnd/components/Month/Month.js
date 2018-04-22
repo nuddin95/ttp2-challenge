@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Month.css';
+import axios from 'axios';
 import Day from '../Day/Day';
 import Form from '../Form/Form'
 
@@ -7,13 +8,14 @@ export default class Month extends Component {
     constructor(props){
         super(props);
         this.state = {
-            form:{}
+            form:{},
+            formVisible:false,
         }
         this.clickDay = this.clickDay.bind(this);
     }
 
-    clickDay(day, events){
-        this.setState({form:{day, events}})
+    clickDay(dateInfo, events){
+        this.setState({form:{dateInfo, events}, formVisible:!this.state.formVisible})
     }
 
     render(){
@@ -21,8 +23,8 @@ export default class Month extends Component {
         return (
             <div className="month">
                 {
-                    (Object.keys(this.state.form).length) ? 
-                    <Form date={this.state.form}/> :
+                    (this.state.formVisible) ? 
+                    <Form date={this.state.form} back={this.clickDay}/> :
                     this.props.days && (Object.keys(days)).map((day, ind) => {
                         return (<Day key={`day-${ind}`} date={{day, 'month':'04', 'year':2018}} clickFunction={this.clickDay} />)
                     })

@@ -12,7 +12,9 @@ export default class Nav extends Component {
     render(){
         return (
             <div id="nav">
-                <h1 id="title">April Calendar</h1>
+                <div id="nav-header">
+                    <h1 id="title">April Calendar</h1>
+                </div>
                 <div id="nav-days">
                     {
                         //maps through days to display them on top of calendar

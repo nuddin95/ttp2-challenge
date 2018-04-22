@@ -8,7 +8,7 @@ export default class Day extends Component {
     constructor(props){
         super(props);
         this.state = {
-            events:[]
+            events:this.props.events || []
         }
     }
 
@@ -23,12 +23,14 @@ export default class Day extends Component {
 
     render(){
         return (
-            <div className="day" onClick={()=>{(this.props.clickFunction)(this.props.date.day, this.state.events)}} >
+            <div className="day" onClick={()=>{(this.props.clickFunction)(this.props.date, this.state.events)}} >
                 <h4 className="day-date">{this.props.date.day}</h4>
                 <ul className="day-events">
                     {
                         (this.state.events.length > 0) && this.state.events.map((event, ind) => {
-                            return (<li className="day-events-single" key={`months-${this.props.date.day}-${ind}`}>{event.title}</li>)
+                            return (<li className="day-events-single" key={`months-${this.props.date.day}-${ind}`}>
+                                        <h5>{event.title}</h5>
+                                    </li>)
                         })
                     }
                 </ul>

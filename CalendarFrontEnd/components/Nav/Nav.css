@@ -1,20 +1,19 @@
 #nav{
     width:100%;
-    /* background-color: #304FFE; */
-    background-color: #3F51B5;
     text-align: center;
 }
+
+/* #nav-header {
+} */
 
 #nav-days{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     padding: 1%;
-    background-color: #9FA8DA;
 }
 
 .nav-days-day{
     text-align: center;
-    /* color: #212121; */
     color: white;
     font-family: 'Comfortaa', cursive;
 }
