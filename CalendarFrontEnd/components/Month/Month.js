@@ -3,8 +3,6 @@ import './Month.css';
 import Day from '../Day/Day';
 import Form from '../Form/Form'
 
-// const days=["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
-
 export default class Month extends Component {
     constructor(props){
         super(props);

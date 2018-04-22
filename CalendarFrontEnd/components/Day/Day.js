@@ -13,10 +13,11 @@ export default class Day extends Component {
     }
 
     componentDidMount(){
-        console.log("DATE FOR GET REQUEST", `${this.props.date.year}-${this.props.date.month}-${this.props.date.day}`)
-        axios.get(`/api/events/${this.props.date.year}-${this.props.date.month}-${this.props.date.day}`)
+        //gets the YYYY-MM-DD format
+        let searchDate = `${this.props.date.year}-${this.props.date.month}-${(this.props.date.day < 10) ? ('0'+this.props.date.day):this.props.date.day}`;
+        axios.get(`/api/events/${searchDate}`)
         .then(events=>{
-            this.setState({events})
+            this.setState({events:events.data})
         })
     }
 
@@ -27,7 +28,7 @@ export default class Day extends Component {
                 <ul className="day-events">
                     {
                         (this.state.events.length > 0) && this.state.events.map((event, ind) => {
-                            return (<li className="day-events-single" key={`months-${this.props.date.day}-${ind}`}>{event}</li>)
+                            return (<li className="day-events-single" key={`months-${this.props.date.day}-${ind}`}>{event.title}</li>)
                         })
                     }
                 </ul>

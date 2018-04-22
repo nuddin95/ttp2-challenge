@@ -26,6 +26,7 @@
 
 .day-events {
     list-style-type: none;
+    overflow: auto;
 }
 
 .day-events-single {
