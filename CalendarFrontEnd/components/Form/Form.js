@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './Form.css';
 
 export default class Form extends Component {
@@ -6,16 +7,72 @@ export default class Form extends Component {
         super(props);
         this.state={
             dateSearch:this.props.date.dateSearch,
-            title:'',
+            title:'s',
             start:'',
             end:'',
             description:''
         }
-        this.infoChange=this.infoChange.bind(this)
+        this.infoChange=this.infoChange.bind(this);
+        this.validateTime = this.validateTime.bind(this);
+        this.submitEvent = this.submitEvent.bind(this);
+        this.convertFormat=this.convertFormat.bind(this);
+    }
+
+    //function to convert from 24-hour to 12-hour format
+    convertFormat(time, type){
+        if(type=='AM'){
+            if((time.slice(0,2)*1) == 0){
+                return '12'+time.slice(2);
+            }else{
+                return time;
+            }
+        }else if(type=='PM'){
+            if((time.slice(0, 2)*1) > 12){
+                let tString = ((time.slice(0, 2)*1) - 12)+'';
+                return tString+time.slice(2);
+            }else{
+                return time;
+            }
+        }
+    }
+
+    //function to submit event
+    submitEvent(){
+        if(!this.state.title.length){
+            alert("EVENT MUST HAVE A TITLE");
+        }else if(!(this.validateTime(this.state.start, this.state.end))){
+            alert("THE CURRENT START AND END TIME ARE NOT POSSIBLE");
+        }else{
+            axios.post('api/events/', {
+                title:this.state.title,
+                description:this.state.description,
+                start:(this.state.start.slice(0,2)*1) > 11 ? this.convertFormat(this.state.start, "PM") + " PM":this.convertFormat(this.state.start, "AM")+" AM",
+                end:(this.state.end.slice(0,2)*1) > 11 ? this.convertFormat(this.state.end, "PM") + " PM":this.convertFormat(this.state.end, "AM")+" AM",
+                date:this.state.dateSearch
+            })
+            .then((createdEvent)=>{
+                this.props.back()
+            })
+        }
+    }
+
+    //function to check if start and end time are valid
+    validateTime(start, end){
+        if(start.length && end.length){
+            let startMin = ((start.slice(0, 2)*1)*60) + (start.slice(3)*1);
+            let endMin = ((end.slice(0, 2)*1)*60) + (end.slice(3)*1);
+            if(endMin < startMin){
+                return false
+            }
+        }else{
+            return false
+        }
+
+    return true;
+
     }
 
     infoChange(e, type){
-        console.log("CHANGED STATE", this.state)
         if(type=='title'){
             this.setState({title:e.target.value})
         }else if(type=='start'){
@@ -25,7 +82,6 @@ export default class Form extends Component {
         }else if(type=='description'){
             this.setState({description:e.target.value})
         }
-        console.log("CHANGED STATE", this.state)
     }
 
     render(){
@@ -53,7 +109,7 @@ export default class Form extends Component {
                             </div>
                             <h4>Description</h4>
                             <textarea rows="6" onChange={(e)=>this.infoChange(e, 'description')} />
-                            <button type="button">Click Me!</button>
+                            <button type="submit" onClick={this.submitEvent} >CREATE EVENT</button>
                         </div>
                     </div>
 
