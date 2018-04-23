@@ -6,7 +6,7 @@
     border:solid 2px black;
     border-radius: 5px;
     display: grid;
-    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-rows: 1fr 5fr;
     grid-area: 1 / 2 / 5 / 7;
 }
 
@@ -19,6 +19,8 @@
 .form-header-date {
     padding: 1%;
     grid-column: 0 / 9;
+    margin-top: auto;
+    margin-bottom: auto;
     text-align: left;
 }
 
@@ -31,15 +33,45 @@
 }
 
 .form-header-back:hover {
-    font-size:1.10em;
+    /* font-size:1.05em; */
+    color:#0091EA;
 }
 
 .form-events {
     grid-row: 2 / 4;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.form-events-info {
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+}
+
+.form-events-info-fields {
+    display: grid;
+    padding:1%;
+    padding-bottom: 2.5%;
+    padding-right:2%;
+    grid-template-rows: .5fr .5fr .5fr .5fr 3fr .5fr
+}
+
+.form-events-info-fields-time {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 .form-events-list {
     list-style-type: none;
     margin:0;
     padding:0;
+    margin-top:5%;
+}
+
+.form-events-list-today {
+    padding: 1%;
+    text-decoration: underline;
+    text-decoration-color: rgba(63,81,181,1);
 }

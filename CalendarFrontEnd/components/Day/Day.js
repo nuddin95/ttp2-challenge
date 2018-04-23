@@ -8,7 +8,8 @@ export default class Day extends Component {
     constructor(props){
         super(props);
         this.state = {
-            events:this.props.events || []
+            events:this.props.events || [],
+            dateSearch:`${this.props.date.year}-${this.props.date.month}-${(this.props.date.day < 10) ? ('0'+this.props.date.day):this.props.date.day}`
         }
     }
 
@@ -23,7 +24,7 @@ export default class Day extends Component {
 
     render(){
         return (
-            <div className="day" onClick={()=>{(this.props.clickFunction)(this.props.date, this.state.events)}} >
+            <div className="day" onClick={()=>{(this.props.clickFunction)(this.props.date, this.state.events, this.state.dateSearch)}} >
                 <h4 className="day-date">{this.props.date.day}</h4>
                 <ul className="day-events">
                     {
